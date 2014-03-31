@@ -2,7 +2,7 @@
 tcp:::accept-refused
 {
  trace("Refused -- :)");
- trace(args[2]->ip_daddr);trace(args[3]->tcps_lport);
+ trace(args[2]->ip_daddr);trace(args[4]->tcp_sport);
 }
 tcp:::receive
 /args[4]->tcp_flags == 0/
