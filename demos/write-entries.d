@@ -2,7 +2,12 @@
 
 syscall::write:entry
 /execname =="cat"/
-
 {
-	tracemem(copyin(arg1,80),80)
+	self->p = arg1;
+}
+syscall::write:return
+/self->p/
+{
+
+	tracemem(copyin(self->p,1000),1000);
 }
