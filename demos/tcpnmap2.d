@@ -4,9 +4,8 @@ tcp:::accept-refused
  trace("Refused -- :)");
  trace(args[2]->ip_daddr);trace(args[2]->tcps_lport);
 }
-
 tcp:::receive
-/args[4]->tcp_flags =!= 0/
+/args[4]->tcp_flags == 0/
 {
 	trace("Flag 0");
 	trace(args[2]->ip_saddr);trace(args[3]->tcps_lport)
