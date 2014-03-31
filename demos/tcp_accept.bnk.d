@@ -2,5 +2,5 @@
 
 tcp:::accept-established
 {
-	trace(args[3]->tcps_raddr);trace (args[3]->tcps_lport);trace(execname);trace(timestamp)
+	trace(args[3]->tcps_raddr);trace(args[3]->tcps_lport);trace(execname);trace(timestamp)
 }
