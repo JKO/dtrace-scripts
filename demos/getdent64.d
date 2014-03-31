@@ -1,12 +1,12 @@
 #!/usr/sbin/dtrace -s
-syscall::getdents64:entry
+syscall::getdents*:entry
 /execname == "ls"/
 {
  self->p = arg1;
 }
-syscall::getdents64:return
+syscall::getdents*:return
 /self->p/
 {
-  tracemem(copyin(self->p, arg1), 100); 
+  tracemem(copyin(self->p, arg0), 100); 
 }
 
