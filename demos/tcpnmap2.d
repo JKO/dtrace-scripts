@@ -11,7 +11,9 @@ tcp:::receive
 	trace(args[2]->ip_saddr);trace(args[3]->tcps_lport);trace(args[4]->tcp_flags);
 }
 tcp:::receive
-/*/args[4]->tcp_flags == (TH_RST|TH_ECE|TH_CWR|TH_URG|TH_PUSH|TH_FIN|TH_SYN|TH_ACK)/*/
+/*
+ args[4]->tcp_flags == (TH_RST|TH_ECE|TH_CWR|TH_URG|TH_PUSH|TH_FIN|TH_SYN|TH_ACK)
+*/
 {
     printf("%s %s %s", args[4]->tcp_flags & TH_FIN ? "FIN|" : "", stringof(args[3]->tcps_lport), stringof(args[2]->ip_saddr));
     printf("%s %s %s", args[4]->tcp_flags & TH_SYN ? "SYN|" : "", stringof(args[3]->tcps_lport), stringof(args[2]->ip_saddr));
