@@ -13,8 +13,6 @@ tcp:::receive
 tcp:::receive
 /args[4]->tcp_flags == (TH_RST|TH_ECE|TH_CWR|TH_URG|TH_PUSH|TH_FIN|TH_SYN|TH_ACK)/
 {
-  trace("TYPE FLAGS");
-  trace(args[2]->ip_saddr);trace(args[3]->tcps_lport);trace(args[4]->tcp_flags);
     printf("%s %d %d", args[4]->tcp_flags & TH_FIN ? "FIN|" : "", args[3]->tcps_lport, args[2]->ip_saddr);
     printf("%s %d %d", args[4]->tcp_flags & TH_SYN ? "SYN|" : "", args[3]->tcps_lport, args[2]->ip_saddr);
     printf("%s %d %d", args[4]->tcp_flags & TH_RST ? "RST|" : "", args[3]->tcps_lport, args[2]->ip_saddr);
