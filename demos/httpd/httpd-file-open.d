@@ -2,5 +2,5 @@
 syscall::open*:entry
 /execname == "httpd"/
 {
-  @[copyinstr(arg0)] = count();
+  trace(copyinstr(arg1))
 }
